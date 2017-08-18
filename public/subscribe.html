@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Subscribe for Alert</title>
+    <link rel="manifest" href="/manifest.json">
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+    <script>
+        var OneSignal = window.OneSignal || [];
+        OneSignal.push(["init", {
+            appId: "cf2f39e8-0fec-4809-b4eb-9ffcb74329c4",
+            autoRegister: false,
+            notifyButton: {
+                enable: false /* Set to false to hide */
+            }
+    }]);
+    </script>
+</head>
+
+<body>
+
+
+
+    <script>
+        setTimeout(function () {
+
+            OneSignal.push(["registerForPushNotifications"]);
+        }, 3000)
+    </script>
+    <!--    -->
+
+</body>
+
+</html>
