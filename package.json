@@ -1,0 +1,23 @@
+{
+  "name": "firealert",
+  "version": "0.1.0",
+  "description": "FireAlert Notification",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nobin555/firealert.git"
+  },
+  "keywords": [
+    "alert"
+  ],
+  "author": "Jithin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nobin555/firealert/issues"
+  },
+  "homepage": "https://github.com/nobin555/firealert#readme"
+}
