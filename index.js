@@ -12,13 +12,15 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 
 
-app.post('/alert', function (req, res) {
+app.get('/alert', function (req, res) {
 
     var data = {
 
-        temp: req.body.temp,
-        smoke_level: req.body.smoke_level,
-        location: req.body.location
+        temp: req.query.temp,
+        smoke_level: req.query.smoke_level,
+        longitude: req.query.lng,
+        latitude: req.query.lat
+        
 
     }
 
