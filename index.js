@@ -20,11 +20,12 @@ app.get('/alert', function (req, res) {
         smoke_level: req.query.smoke_level,
         longitude: req.query.lng,
         latitude: req.query.lat
-        
+
 
     }
 
 
+    sendNoti(req.query.lat, req.query.lng);
 
     res.json(data);
 
@@ -55,5 +56,61 @@ app.get('/', function (req, res) {
     res.json(data)
 
 })
+
+
+
+
+function sendNoti(lng, lat) {
+
+
+
+
+
+    var restKey = 'YTc5NDgxNDYtMDk1MC00ZGRiLTgxZWUtMjk3ZmEyOGZmNzU0';
+    var appID = 'cf2f39e8-0fec-4809-b4eb-9ffcb74329c4';
+    var push_data = {
+        method: 'POST',
+        uri: 'https://onesignal.com/api/v1/notifications',
+        headers: {
+            "authorization": "Basic " + restKey,
+            "content-type": "application/json"
+        },
+        json: true,
+        body: {
+            'app_id': appID,
+            'contents': {
+                en: "Click to view location "
+            },
+            'headings': {
+                en: "FireAlert"
+            },
+            'included_segments': ['All'],
+            'url': 'https://quiet-refuge-45087.herokuapp.com/location/' + lng + '/' + lat,
+
+
+            priority: 10,
+            ttl: 0
+        }
+    };
+
+
+
+    request(push_data, function (err, body, response) {
+
+        if (err) {
+
+            console.log(err);
+            return;
+        }
+
+
+    })
+
+
+
+
+}
+
+
 
 app.listen(process.env.PORT || 8005)
